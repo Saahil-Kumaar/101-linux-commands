@@ -4,28 +4,28 @@
 
 ### Creating a Pull Request
 
-This book has been designed so that people can easily expand it.
-To request us to review changes that you create, you will need to create a pull request.
-Creating a pull request is described in
- [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github).
+This book has been designed so that people can easily contribute to it.  
+To request us to review changes that you create, you will need to open a pull request.  
+Creating a pull request is described in  
+[this tutorial](https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github).
 
 ### File Location/Types
 
 ### [`ebook`](./ebook)
 
-This directory holds all of the translations of the eBook.
+This directory contains all of the translations of the eBook.
 
 ### [`ebook/{LANG}`](./ebook/{LANG})
 
-In the `ebook` directory we have the translations of the eBook in different languages.
+The `ebook` directory contains translations of the eBook in different languages.
 
-If you are adding a new translation, make sure to make a copy of the `./ebook/en` directory and use the language code as the new directory name.
+If you are adding a new translation, copy the `./ebook/en` directory and use the language code as the new directory name.
 
 ### [`ebook/{LANG}/content`](./ebook/{LANG}/content)
 
 All the Markdown files for the '101 Linux commands' eBook are located within the [`content`](./content) directory for the specific language.
 
-For example if you are adding a Bulgarian translation copy the `./ebook/en` folder to `./ebook/bg`, translate the `.md` files in the `content` directory and submit a PR.
+For example, if you are adding a Bulgarian translation, copy the `./ebook/en` folder to `./ebook/bg`, translate the `.md` files in the `content` directory, and submit a PR.
 
 ### eBook Generation
 
@@ -41,25 +41,25 @@ Ibis Next supports generating PDF, EPUB, and HTML formats from Markdown content.
 composer install
 ```
 
-1. Generate PDF (light theme):
+2. Generate PDF (light theme):
 
 ```bash
 composer run pdf
 ```
 
-1. Generate PDF (dark theme):
+3. Generate PDF (dark theme):
 
 ```bash
 composer run pdf-dark
 ```
 
-1. Generate EPUB:
+4. Generate EPUB:
 
 ```bash
 composer run epub
 ```
 
-1. Generate HTML:
+5. Generate HTML:
 
 ```bash
 composer run html
@@ -78,20 +78,20 @@ git clone https://github.com/<your-user>/101-linux-commands.git
 cd 101-linux-commands
 ```
 
-1. Create a dedicated branch for your changes.
+2. Create a dedicated branch for your changes.
 
 ```bash
 git checkout -b feature/add-cli-example
 ```
 
-1. While you work, check your status and stage files deliberately.
+3. While you work, check your status and stage files deliberately.
 
 ```bash
 git status
 git add CONTRIBUTING.md
 ```
 
-1. Commit with a descriptive message and push your branch.
+4. Commit with a descriptive message and push your branch.
 
 ```bash
 git commit -m "docs: add CLI contribution examples"
@@ -106,7 +106,7 @@ git push origin feature/add-cli-example
 cd cli
 ```
 
-1. (Recommended) Create and activate a virtual environment. Use the command that matches your shell:
+2. (Recommended) Create and activate a virtual environment. Use the command that matches your shell:
 
 ```bash
 python -m venv .venv
@@ -116,14 +116,14 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-1. Install the dependencies and the CLI in editable mode.
+3. Install the dependencies and the CLI in editable mode.
 
 ```bash
 pip install -r requirements.txt
 pip install -e .
 ```
 
-1. Confirm the CLI works.
+4. Confirm the CLI works.
 
 ```bash
 linux-cli --help
@@ -142,14 +142,13 @@ import typer
 
 app = typer.Typer(help="Ping command group")
 
-
 @app.command()
 def once():
     """Print a ping message."""
     typer.echo("pong")
 ```
 
-1. Register the command with the main Typer app in `cli/cli.py`:
+2. Register the command with the main Typer app in `cli/cli.py`:
 
 ```python
 from commands import hello, ping
@@ -159,9 +158,9 @@ app.add_typer(hello.app, name="hello")
 app.add_typer(ping.app, name="ping")
 ```
 
-1. Add or update tests in `cli/test_cli.py` to cover your new command. Mirror the existing `hello` command tests and update expectations.
+3. Add or update tests in `cli/test_cli.py` to cover your new command. Mirror the existing `hello` command tests and update expectations.
 
-1. Run the CLI manually to verify your command behaves as expected.
+4. Run the CLI manually to verify your command behaves as expected.
 
 ```bash
 python -m cli.cli ping once
@@ -171,19 +170,19 @@ python -m cli.cli ping once
 
 1. Ensure you're in the `cli` directory with your virtual environment activated.
 
-1. Install the testing dependency if you haven't already.
+2. Install the testing dependency if you haven't already.
 
 ```bash
 pip install pytest
 ```
 
-1. Execute the test suite:
+3. Execute the test suite:
 
 ```bash
 pytest
 ```
 
-1. (Optional but encouraged) Run the additional quality checks that the workflow executes:
+4. (Optional but encouraged) Run the additional quality checks that the workflow executes:
 
 ```bash
 black cli/
@@ -194,13 +193,13 @@ mypy cli/
 
 ## Issue Creation
 
-In the event that you have an issue using the guide or have a suggestion for a change but don't want to contribute changes,
- we are more than happy to help.
-Make sure that when you create your issue, it follows the format for the type of issue you select
- (it has individual templates for each issue type).
+If you have an issue using the guide or want to suggest a change but cannot contribute changes,  
+we are more than happy to help.  
+Make sure that when you create your issue, it follows the format for the type of issue you select  
+(it has individual templates for each issue type).
 
 Issue template types include the following:
 
-- Bug Reporting
-- Feature Requests
-- Help Requests
+- Bug Reporting  
+- Feature Requests  
+- Help Requests  
